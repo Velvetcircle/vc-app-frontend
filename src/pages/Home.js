@@ -16,7 +16,7 @@ export default function Home() {
     <div className="relative min-h-screen bg-gradient-to-b from-purple-950 to-purple-800 text-white flex flex-col items-center justify-center p-4 space-y-6">
       <Navbar />
 
-      <div className="w-full max-w-3xl rounded-xl overflow-hidden shadow-2xl border-4 border-purple-600">
+      <div className="w-full max-w-3xl rounded-xl overflow-hidden shadow-2xl border-4 border-purple-600 mt-12">
         <iframe
           className="w-full aspect-video"
           src="https://www.youtube.com/embed/2tJP5NimruQ?autoplay=1&mute=0&controls=0&rel=0&showinfo=0&loop=1&playlist=2tJP5NimruQ"
