@@ -4,8 +4,9 @@
 
 /* Velvet Circle additional styles */
 body {
-  background-color: #4b0082;
+  background: linear-gradient(to bottom right, #3b0a28, #1a0110);
   color: white;
   font-family: 'Segoe UI', sans-serif;
 }
+
 
