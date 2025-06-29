@@ -17,7 +17,6 @@ export default function Home() {
         allow="autoplay; encrypted-media"
         allowFullScreen
       ></iframe>  
-      />
       <h1 className="text-3xl md:text-4xl font-bold mb-2 animate-slide-up">
         Because everyone deserves someone.
       </h1>
