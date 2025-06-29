@@ -1,0 +1,14 @@
+/* velvet.css */
+body {
+  font-family: "Segoe UI", sans-serif;
+}
+
+a {
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #d8b4fe; /* Tailwind purple-300 tone for hover links */
+}
+
+/* you can add more Velvet branding tweaks later here */
