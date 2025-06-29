@@ -22,8 +22,8 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/terms" element={<Terms />} />
-          <Route path="/payment-policy" element={<PaymentPolicy />} />
-          <Route path="/reward-policy" element={<RewardPolicy />} />
+          <Route path="/paymentpolicy" element={<PaymentPolicy />} />
+          <Route path="/rewardpolicy" element={<RewardPolicy />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/volunteer" element={<VolunteerApplication />} />
