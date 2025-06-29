@@ -6,7 +6,6 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Send suggestion to your email (velvetcircleindia@gmail.com)
     window.location.href = `mailto:velvetcircleindia@gmail.com?subject=Suggestion&body=${encodeURIComponent(
       suggestion
     )}`;
@@ -15,10 +14,8 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-purple-950 to-purple-800 text-white flex flex-col items-center justify-center p-4 space-y-6">
-      {/* Hamburger Navbar */}
       <Navbar />
 
-      {/* Video instead of logo */}
       <div className="w-full max-w-3xl rounded-xl overflow-hidden shadow-2xl border-4 border-purple-600">
         <iframe
           className="w-full aspect-video"
@@ -29,12 +26,10 @@ export default function Home() {
         ></iframe>
       </div>
 
-      {/* Subtitle */}
       <h2 className="text-xl md:text-2xl text-center italic mt-4">
         Where companionship meets empathy — beyond words, beyond judgment.
       </h2>
 
-      {/* Suggestion box */}
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-xl bg-purple-700 p-4 rounded-xl shadow space-y-4 mt-6"
