@@ -8,10 +8,10 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 shadow">
-      {/* Velvet style header using background.jpg */}
+    <>
+      {/* Velvet banner header */}
       <div
-        className="relative flex items-center justify-between px-4 py-3"
+        className="w-full relative flex items-center justify-center"
         style={{
           backgroundImage: "url('/assets/background.jpg')",
           backgroundSize: "cover",
@@ -19,20 +19,20 @@ export default function Navbar() {
           height: "200px",
         }}
       >
-        <h1 className="text-white text-2xl md:text-3xl font-bold drop-shadow">
-          Velvet Circle
-        </h1>
         <button
           onClick={toggleMenu}
-          className="p-2 rounded-full bg-[#800020] text-white shadow hover:bg-[#a52a2a] transition"
+          className="absolute top-4 left-4 p-2 rounded-full bg-[#800020] text-white shadow hover:bg-[#a52a2a] transition z-50"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
+        <h1 className="text-white text-3xl font-bold drop-shadow-md text-center">
+          Velvet Circle
+        </h1>
       </div>
 
       {/* Sidebar menu */}
       {isOpen && (
-        <div className="absolute top-[200px] left-0 bg-[#800020] rounded-r-lg shadow p-4 space-y-3 w-60">
+        <div className="fixed top-[200px] left-0 bg-[#800020] rounded-r-lg shadow p-4 space-y-3 w-60 z-50">
           <Link
             to="/"
             className="block text-white hover:text-gray-200"
@@ -91,6 +91,6 @@ export default function Navbar() {
           </Link>
         </div>
       )}
-    </nav>
+    </>
   );
 }
