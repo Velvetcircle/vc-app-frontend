@@ -98,12 +98,12 @@ export default function Services() {
         <p className="mb-2">🛡️ Because everyone deserves someone — even if just for a while.</p>
         {/* Replace the # below with your actual Google Form link later */}
         <a
-          href="#"
+          href="https://docs.google.com/forms/d/e/1FAIpQLScjdAPEW1QMlhGlFIY5FaLZght5OXu1e0Be_7qvjMiHMZZUvQ/viewform?usp=sharing&ouid=105710170711084264256"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-purple-700 hover:bg-purple-900 text-white px-6 py-3 rounded-xl shadow transition"
         >
-          Apply as a Volunteer
+          Book Now
         </a>
       </footer>
     </div>
