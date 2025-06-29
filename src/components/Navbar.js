@@ -8,23 +8,31 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="fixed top-4 left-4 z-50">
-      <button
-        onClick={toggleMenu}
-        className="p-2 rounded-full bg-[#800020] text-white shadow hover:bg-[#a52a2a] transition"
+    <nav className="fixed top-0 left-0 w-full z-50 shadow">
+      {/* Velvet style header using background.jpg */}
+      <div
+        className="relative flex items-center justify-between px-4 py-3"
+        style={{
+          backgroundImage: "url('/assets/background.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "200px",
+        }}
       >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
+        <h1 className="text-white text-2xl md:text-3xl font-bold drop-shadow">
+          Velvet Circle
+        </h1>
+        <button
+          onClick={toggleMenu}
+          className="p-2 rounded-full bg-[#800020] text-white shadow hover:bg-[#a52a2a] transition"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Sidebar menu */}
       {isOpen && (
-        <div className="absolute top-12 left-0 bg-[#800020] rounded-lg shadow p-4 space-y-2 w-64">
-          {/* LOGO */}
-          <div className="flex justify-center mb-2">
-            <img
-              src="/assets/VC.jpg"
-              alt="Velvet Circle"
-              className="h-12 w-auto rounded"
-            />
-          </div>
+        <div className="absolute top-[200px] left-0 bg-[#800020] rounded-r-lg shadow p-4 space-y-3 w-60">
           <Link
             to="/"
             className="block text-white hover:text-gray-200"
