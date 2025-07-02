@@ -11,8 +11,10 @@ import RewardPolicy from "./pages/RewardPolicy";
 import Careers from "./pages/Careers";
 import Booking from "./pages/Booking";
 import VolunteerApplication from "./pages/VolunteerApplication";
-import Faq from "./pages/Faq";           // added
-import Vision from "./pages/Vision";     // added
+import Faq from "./pages/Faq";
+import Vision from "./pages/Vision";
+import Login from "./pages/Login";         // if you add Login
+import Signup from "./pages/Signup";       // if you add Signup
 
 export default function App() {
   return (
@@ -29,8 +31,10 @@ export default function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/volunteer" element={<VolunteerApplication />} />
-          <Route path="/faq" element={<Faq />} />          {/* added */}
-          <Route path="/vision" element={<Vision />} />    {/* added */}
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/vision" element={<Vision />} />
+          <Route path="/login" element={<Login />} />         {/* optional */}
+          <Route path="/signup" element={<Signup />} />       {/* optional */}
         </Routes>
       </main>
       <Footer />
