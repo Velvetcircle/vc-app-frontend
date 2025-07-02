@@ -30,6 +30,9 @@ export default function Navbar() {
           <Link to="/login" className="hover:text-rose-300">
             Login
           </Link>
+          <Link to="/signup" className="hover:text-rose-300">
+            Signup
+          </Link>
         </div>
       </header>
 
