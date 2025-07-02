@@ -3,23 +3,27 @@ import { auth } from "../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";   // <-- added
 
 export default function Signup() {
-  const [name, setName] = useState(""); 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [captchaValue, setCaptchaValue] = useState(null);  // <-- added
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    if (!captchaValue) {
+      alert("Please verify captcha before signing up.");
+      return;
+    }
+
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      await updateProfile(userCredential.user, {
-        displayName: name,
-      });
+      await updateProfile(userCredential.user, { displayName: name });
 
-      // send welcome email
-      await emailjs.send(
+      emailjs.send(
         "service_jpjmuag",
         "template_hqehyif",
         {
@@ -43,7 +47,7 @@ export default function Signup() {
         <input
           type="text"
           placeholder="Full Name"
-          className="w-full p-2 border rounded text-black placeholder:text-gray-500"
+          className="w-full p-2 border rounded text-black"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
@@ -51,7 +55,7 @@ export default function Signup() {
         <input
           type="email"
           placeholder="Email"
-          className="w-full p-2 border rounded text-black placeholder:text-gray-500"
+          className="w-full p-2 border rounded text-black"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -59,11 +63,18 @@ export default function Signup() {
         <input
           type="password"
           placeholder="Password"
-          className="w-full p-2 border rounded text-black placeholder:text-gray-500"
+          className="w-full p-2 border rounded text-black"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+
+        {/* captcha component */}
+        <ReCAPTCHA
+          sitekey="YOUR_SITE_KEY" // replace with your actual site key
+          onChange={(value) => setCaptchaValue(value)}
+        />
+
         <button
           type="submit"
           className="w-full bg-purple-700 text-white p-2 rounded hover:bg-purple-900"
