@@ -1,51 +1,51 @@
 import { useState } from "react";
+import { auth } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // You can later connect to your backend or Firebase here
-    console.log("Login submitted:", email, password);
-    alert("Login feature coming soon!"); // placeholder
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      alert("Login successful!");
+      navigate("/");  // redirect
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center text-center text-white bg-gradient-to-br from-[#3b0a28] to-[#1a0110] px-4">
-      <div className="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-xl shadow w-full max-w-sm">
-        <h1 className="text-3xl font-bold text-purple-300 mb-4">🔒 Login</h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="text-left">
-            <label className="block mb-1 font-semibold">Email</label>
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 rounded text-black"
-              placeholder="you@example.com"
-            />
-          </div>
-          <div className="text-left">
-            <label className="block mb-1 font-semibold">Password</label>
-            <input
-              type="password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-2 rounded text-black"
-              placeholder="********"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full py-2 bg-purple-700 rounded hover:bg-purple-900 transition"
-          >
-            Login
-          </button>
-        </form>
-      </div>
+    <div className="p-6 max-w-md mx-auto">
+      <h1 className="text-2xl font-bold mb-4">Log In</h1>
+      <form onSubmit={handleLogin} className="space-y-4">
+        <input
+          type="email"
+          placeholder="Email"
+          className="w-full p-2 border rounded"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          className="w-full p-2 border rounded"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button
+          type="submit"
+          className="w-full bg-purple-700 text-white p-2 rounded"
+        >
+          Log In
+        </button>
+      </form>
     </div>
   );
 }
