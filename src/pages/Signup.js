@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 
 export default function Signup() {
-  const [name, setName] = useState(""); // name field
+  const [name, setName] = useState(""); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -13,27 +13,24 @@ export default function Signup() {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      // create firebase user
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-
-      // update display name
       await updateProfile(userCredential.user, {
         displayName: name,
       });
 
       // send welcome email
-      emailjs.send(
-        "service_jpjmuag",         // your service ID
-        "template_hqehyif",        // your template ID
+      await emailjs.send(
+        "service_jpjmuag",
+        "template_hqehyif",
         {
-          user_name: name,         // assuming template uses user_name
-          user_email: email,       // assuming template uses user_email
+          user_name: name,
+          user_email: email,
         },
-        "PUHC6khm1oc6Wz6vK"        // your public key
+        "PUHC6khm1oc6Wz6vK"
       );
 
       alert("Signup successful!");
-      navigate("/account"); // redirect to account page
+      navigate("/account");
     } catch (error) {
       alert(error.message);
     }
@@ -46,7 +43,7 @@ export default function Signup() {
         <input
           type="text"
           placeholder="Full Name"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded text-black placeholder:text-gray-500"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
@@ -54,7 +51,7 @@ export default function Signup() {
         <input
           type="email"
           placeholder="Email"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded text-black placeholder:text-gray-500"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -62,7 +59,7 @@ export default function Signup() {
         <input
           type="password"
           placeholder="Password"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded text-black placeholder:text-gray-500"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
