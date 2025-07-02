@@ -11,6 +11,8 @@ import RewardPolicy from "./pages/RewardPolicy";
 import Careers from "./pages/Careers";
 import Booking from "./pages/Booking";
 import VolunteerApplication from "./pages/VolunteerApplication";
+import Faq from "./pages/Faq";           // added
+import Vision from "./pages/Vision";     // added
 
 export default function App() {
   return (
@@ -27,10 +29,11 @@ export default function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/volunteer" element={<VolunteerApplication />} />
+          <Route path="/faq" element={<Faq />} />          {/* added */}
+          <Route path="/vision" element={<Vision />} />    {/* added */}
         </Routes>
       </main>
       <Footer />
     </div>
   );
 }
-
