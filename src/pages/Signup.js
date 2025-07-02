@@ -2,9 +2,10 @@ import { useState } from "react";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 
 export default function Signup() {
-  const [name, setName] = useState(""); // new field
+  const [name, setName] = useState(""); // name field
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -12,13 +13,24 @@ export default function Signup() {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      // create the user
+      // create firebase user
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
-      // update profile with display name
+      // update display name
       await updateProfile(userCredential.user, {
         displayName: name,
       });
+
+      // send welcome email
+      emailjs.send(
+        "service_jpjmuag",         // your service ID
+        "template_hqehyif",        // your template ID
+        {
+          user_name: name,         // assuming template uses user_name
+          user_email: email,       // assuming template uses user_email
+        },
+        "PUHC6khm1oc6Wz6vK"        // your public key
+      );
 
       alert("Signup successful!");
       navigate("/account"); // redirect to account page
