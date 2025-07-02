@@ -9,24 +9,39 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Hero with velvet background */}
+      {/* Fixed top header with border */}
+      <header className="fixed top-0 left-0 w-full flex items-center justify-between px-4 py-3 bg-black/70 text-white border-b border-rose-500 z-50">
+        {/* Hamburger on left */}
+        <button
+          onClick={toggleMenu}
+          className="p-2 rounded-full hover:bg-rose-800 transition"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* Right side links */}
+        <div className="flex space-x-4 text-sm font-semibold">
+          <Link to="/faq" className="hover:text-rose-300">
+            FAQ
+          </Link>
+          <Link to="/vision" className="hover:text-rose-300">
+            Vision
+          </Link>
+          <Link to="/login" className="hover:text-rose-300">
+            Login
+          </Link>
+        </div>
+      </header>
+
+      {/* Hero background image */}
       <div
-        className="relative w-full h-[250px] flex items-center justify-center"
+        className="relative w-full h-[250px] flex items-center justify-center mt-14"
         style={{
           backgroundImage: "url('/assets/background.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        {/* fixed hamburger on left */}
-        <button
-          onClick={toggleMenu}
-          className="absolute top-4 left-4 p-2 rounded-full bg-black/70 text-white shadow hover:bg-black/90 transition z-50"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        {/* glass effect headline */}
         <div className="bg-white/20 backdrop-blur-md px-6 py-4 rounded-lg shadow-lg text-center">
           <h1 className="text-4xl font-bold text-white drop-shadow">
             Velvet Circle
@@ -37,63 +52,31 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Side menu, same as before */}
+      {/* Side menu */}
       {isOpen && (
-        <div className="fixed top-[250px] left-0 bg-black/80 backdrop-blur rounded-r-xl shadow p-4 space-y-3 w-60 z-50">
-          <Link
-            to="/"
-            className="block text-white hover:text-rose-200"
-            onClick={() => setIsOpen(false)}
-          >
+        <div className="fixed top-14 left-0 bg-black/80 backdrop-blur rounded-r-xl shadow p-4 space-y-3 w-60 z-50">
+          <Link to="/" onClick={() => setIsOpen(false)} className="block hover:text-rose-200">
             Home
           </Link>
-          <Link
-            to="/about"
-            className="block text-white hover:text-rose-200"
-            onClick={() => setIsOpen(false)}
-          >
+          <Link to="/about" onClick={() => setIsOpen(false)} className="block hover:text-rose-200">
             About
           </Link>
-          <Link
-            to="/services"
-            className="block text-white hover:text-rose-200"
-            onClick={() => setIsOpen(false)}
-          >
+          <Link to="/services" onClick={() => setIsOpen(false)} className="block hover:text-rose-200">
             Services
           </Link>
-          <Link
-            to="/careers"
-            className="block text-white hover:text-rose-200"
-            onClick={() => setIsOpen(false)}
-          >
+          <Link to="/careers" onClick={() => setIsOpen(false)} className="block hover:text-rose-200">
             Careers
           </Link>
-          <Link
-            to="/booking"
-            className="block text-white hover:text-rose-200"
-            onClick={() => setIsOpen(false)}
-          >
+          <Link to="/booking" onClick={() => setIsOpen(false)} className="block hover:text-rose-200">
             Booking
           </Link>
-          <Link
-            to="/rewardpolicy"
-            className="block text-white hover:text-rose-200"
-            onClick={() => setIsOpen(false)}
-          >
+          <Link to="/rewardpolicy" onClick={() => setIsOpen(false)} className="block hover:text-rose-200">
             Reward Policy
           </Link>
-          <Link
-            to="/paymentpolicy"
-            className="block text-white hover:text-rose-200"
-            onClick={() => setIsOpen(false)}
-          >
+          <Link to="/paymentpolicy" onClick={() => setIsOpen(false)} className="block hover:text-rose-200">
             Payment Policy
           </Link>
-          <Link
-            to="/terms"
-            className="block text-white hover:text-rose-200"
-            onClick={() => setIsOpen(false)}
-          >
+          <Link to="/terms" onClick={() => setIsOpen(false)} className="block hover:text-rose-200">
             Terms & Conditions
           </Link>
         </div>
