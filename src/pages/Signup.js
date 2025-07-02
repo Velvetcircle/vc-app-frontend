@@ -70,7 +70,7 @@ export default function Signup() {
 
         {/* captcha component */}
         <ReCAPTCHA
-          sitekey="YOUR_SITE_KEY" // replace with your actual site key
+          sitekey="6LeM_nQrAAAAAMSRV0YbM19ri-6Ucn8NXDZh1jS9" // replace with your actual site key
           onChange={(value) => setCaptchaValue(value)}
         />
 
