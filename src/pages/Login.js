@@ -21,9 +21,7 @@ export default function Login() {
           "service_jpjmuag",     // your EmailJS service ID
           "template_we3rnra",     // your EmailJS template ID
           {
-            user_email: email,
-            to_email: email,                          // extra for recipient
-            user_name: email.split("@")[0],           // optional
+            email: email,         // optional
           },
           "PUHC6khm1oc6Wz6vK"      // your EmailJS public key
         )
