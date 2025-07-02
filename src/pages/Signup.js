@@ -27,8 +27,7 @@ export default function Signup() {
         "service_jpjmuag",
         "template_hqehyif",
         {
-          user_name: name,
-          user_email: email,
+          email: email,
         },
         "PUHC6khm1oc6Wz6vK"
       );
