@@ -15,6 +15,7 @@ import Faq from "./pages/Faq";
 import Vision from "./pages/Vision";
 import Login from "./pages/Login";         // if you add Login
 import Signup from "./pages/Signup";       // if you add Signup
+import Account from "./pages/Account";
 
 export default function App() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/vision" element={<Vision />} />
           <Route path="/login" element={<Login />} />         {/* optional */}
           <Route path="/signup" element={<Signup />} />       {/* optional */}
+          <Route path="/account" element={<Account />} />
         </Routes>
       </main>
       <Footer />
